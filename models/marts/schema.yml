@@ -1,0 +1,63 @@
+
+version: 2
+
+models:
+    - name: fact_order_details
+      description: Table that resume the orders with the products in each order.
+      columns:
+          - name: order_id
+            description: "The primary key for this table"
+            tests:
+                - not_null
+
+          - name: customer_id
+            description: "The customer id for this table"
+            tests:
+                - not_null
+  
+          - name: product_id
+            description: "The id of the products in the order"
+            tests:
+                - not_null
+    
+          - name: employee_id
+            description: "The employee id for this table"
+            tests:
+                - not_null
+
+    - name: dim_customers
+      description: Table that resume the customers from Northwind.
+      columns:
+          - name: customer_id
+            description: "The customer id for this table"
+            tests:
+                - not_null
+                - unique
+
+    - name: dim_products
+      description: Table that resume the products in Northwind.
+      columns:
+          - name: product_id
+            description: "The id of the products in the order"
+            tests:
+                - not_null
+                - unique
+
+    - name: dim_shippers
+      description: Table that resume the shippers.
+      columns:
+          - name: shipper_id
+            description: "The primary key for this table"
+            tests:
+                - not_null
+                - unique
+
+    - name: dim_suppliers
+      description: Table that resume the suppliers.
+      columns:
+          - name: supplier_id
+            description: "The primary key for this table"
+            tests:
+                - not_null
+                - unique
+
